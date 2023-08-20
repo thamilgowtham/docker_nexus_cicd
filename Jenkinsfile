@@ -40,13 +40,6 @@ pipeline{
                }
             }
         }
-        stage('k8s connect'){
-            steps{
-                sshagent(['kube8']) {
-                sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/sonarandnexus/newdeploy.yml ubuntu@18.236.246.12'
-                sh 'kubectl create -f newdeploy.yml'
-                }
-            }
-        }
+       
     }
 }
